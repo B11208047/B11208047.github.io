@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 全球地緣政治與前沿科技研究智庫</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#dbe3ed',
+                            200: '#bdcbde',
+                            300: '#91aacc',
+                            400: '#6184b5',
+                            500: '#436599',
+                            600: '#344f7c',
+                            700: '#2a4065',
+                            800: '#253654',
+                            900: '#222f46',
+                            950: '#141b29',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for premium academic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141b29;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a4065;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #436599;
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- 頂部導航欄 (Top Navigation Bar) -->
+    <header class="border-b border-brand-900 bg-brand-950/80 backdrop-blur-md sticky top-0 z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <!-- Premium Compass/Intel Logo -->
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/20">
+                    <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight bg-gradient-to-r from-slate-50 to-brand-300 bg-clip-text text-transparent">2026 全球前沿科技與地緣博弈智庫</h1>
+                    <p class="text-[10px] text-brand-400 uppercase tracking-widest font-semibold code-font">Geopolitical & Tech Research Portal</p>
+                </div>
+            </div>
+
+            <!-- 核心搜尋欄 (Core Search Bar) -->
+            <div class="relative max-w-md w-full hidden md:block">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" id="globalSearch" oninput="handleSearch(this.value)" placeholder="搜尋研究資源、FAQ 或歷史大事紀..." class="block w-full pl-10 pr-4 py-2 border border-brand-800 rounded-lg bg-brand-900/50 text-slate-100 placeholder-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm transition-all">
+                <span class="absolute right-3 top-2.5 px-1.5 py-0.5 text-[9px] text-brand-400 bg-brand-950 rounded border border-brand-800 font-mono">⌘K</span>
+            </div>
+
+            <!-- 使用者角色與狀態 -->
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden sm:block">
+                    <p class="text-xs text-brand-300 font-semibold">資深研究員</p>
+                    <p class="text-[10px] text-emerald-400 flex items-center gap-1 justify-end">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        智庫庫聯機狀態
+                    </p>
+                </div>
+                <div class="w-9 h-9 rounded-full bg-brand-800 border border-brand-600 flex items-center justify-center font-bold text-sm text-brand-200">
+                    RE
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 頂部手機搜尋欄 (Mobile Search Bar) -->
+    <div class="p-4 bg-brand-950/90 border-b border-brand-900 md:hidden">
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="h-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <input type="text" id="globalSearchMobile" oninput="handleSearch(this.value)" placeholder="搜尋研究資源、FAQ 或歷史大事紀..." class="block w-full pl-10 pr-4 py-2 border border-brand-800 rounded-lg bg-brand-900/50 text-slate-100 placeholder-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-sm">
+        </div>
+    </div>
+
+    <!-- 主體版面配置 (Main Layout) -->
+    <div class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex flex-col lg:flex-row gap-6">
+        
+        <!-- 左側導航面板與分析視窗 (Sidebar Dashboard / Controls) -->
+        <aside class="w-full lg:w-64 shrink-0 flex flex-col gap-6">
+            <!-- 門戶模組導航 (Navigation Module) -->
+            <div class="bg-brand-900/40 border border-brand-900 rounded-xl p-4">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3 px-2">研究導航模組</h3>
+                <nav class="space-y-1">
+                    <button onclick="switchTab('dashboard')" id="btn-dashboard" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all bg-brand-800/80 text-white border-l-4 border-brand-500">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
+                            研究控制面板
+                        </span>
+                        <span class="text-xs bg-brand-950 px-2 py-0.5 rounded text-brand-400 font-semibold" id="badge-overview">總覽</span>
+                    </button>
+                    
+                    <button onclick="switchTab('resources')" id="btn-resources" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-brand-900/80 hover:text-white border-l-4 border-transparent">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            前沿資源庫
+                        </span>
+                        <span class="text-xs bg-brand-950 px-2 py-0.5 rounded text-brand-400" id="count-resources">6 篇</span>
+                    </button>
+
+                    <button onclick="switchTab('faq')" id="btn-faq" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-brand-900/80 hover:text-white border-l-4 border-transparent">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            學術 FAQ 庫
+                        </span>
+                        <span class="text-xs bg-brand-950 px-2 py-0.5 rounded text-brand-400" id="count-faqs">8 題</span>
+                    </button>
+
+                    <button onclick="switchTab('timeline')" id="btn-timeline" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-brand-900/80 hover:text-white border-l-4 border-transparent">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            地緣博弈大事紀
+                        </span>
+                        <span class="text-xs bg-brand-950 px-2 py-0.5 rounded text-brand-400">Time</span>
+                    </button>
+
+                    <button onclick="switchTab('datacenter')" id="btn-datacenter" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-brand-900/80 hover:text-white border-l-4 border-transparent">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 114 0v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            數據中心
+                        </span>
+                        <span class="text-xs bg-emerald-950 px-2 py-0.5 rounded text-emerald-400 font-mono">LIVE</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- 熱點領域焦點研究區域 (Research Focus) -->
+            <div class="bg-gradient-to-b from-brand-900/40 to-brand-950 border border-brand-900 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">目前關鍵焦點領域</h4>
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                </div>
+                <div class="space-y-3">
+                    <div class="p-2.5 rounded-lg bg-brand-950/60 border border-brand-800/80">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-400 bg-brand-900 px-1.5 py-0.5 rounded">地緣博弈</span>
+                        <p class="text-xs font-medium text-slate-200 mt-1.5 leading-relaxed">2026 習川北京會晤：重塑中美台關係頂層架構與全球商務CEO經貿外交。</p>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-brand-950/60 border border-brand-800/80">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950 px-1.5 py-0.5 rounded">前沿科技</span>
+                        <p class="text-xs font-medium text-slate-200 mt-1.5 leading-relaxed">AI 代理人重整半導體算力格局：CPU 與存儲技術崛起，大勝傳統單純 GPU 架構。</p>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-brand-950/60 border border-brand-800/80">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded">大國海權</span>
+                        <p class="text-xs font-medium text-slate-200 mt-1.5 leading-relaxed">造船霸權爭奪：中國吃下 91.4% 全球原油輪訂單，美韓聯手重振黃金艦隊之戰。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 智庫研究聲明 -->
+            <div class="p-3 bg-brand-950 border border-brand-900 rounded-xl text-[11px] text-brand-400 leading-relaxed">
+                <strong class="text-brand-300">學術免責與資訊源說明：</strong> 本門戶所載之分析與數據，皆深度提煉自 2026 年 5 月中旬《TVBS文茜的世界財經周報/世界周報》上、下集完整內容，旨在提供最權威的地緣博弈學術探討。
+            </div>
+        </aside>
+
+        <!-- 右側主要工作與展示區域 (Main Content Canvas) -->
+        <main class="flex-1 min-w-0 flex flex-col gap-6">
+            
+            <!-- 搜尋狀態橫幅 (Search Result Alert Banner) -->
+            <div id="searchAlert" class="hidden p-3 bg-brand-900/50 border border-brand-700 rounded-xl flex items-center justify-between text-sm">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-brand-400 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    <span>搜尋條件 <strong id="searchKeyword" class="text-brand-300">""</strong> 已生效，正在過濾文獻、FAQ 與時間軸。</span>
+                </div>
+                <button onclick="clearSearch()" class="text-xs text-brand-400 hover:text-white underline">清除搜尋</button>
+            </div>
+
+            <!-- ================== 1. 研究控制面板 (Dashboard Overview Tab) ================== -->
+            <section id="tab-dashboard" class="space-y-6">
+                <!-- 智庫戰略分析卡片 -->
+                <div class="relative overflow-hidden rounded-2xl border border-brand-800 bg-gradient-to-r from-brand-900 to-brand-950 p-6 sm:p-8">
+                    <div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none">
+                        <!-- Abstract Grid design -->
+                        <svg class="h-full w-full" fill="currentColor" viewBox="0 0 100 100">
+                            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+                            </pattern>
+                            <rect width="100" height="100" fill="url(#grid)" />
+                        </svg>
+                    </div>
+                    <div class="relative z-10 max-w-2xl space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-400 code-font flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+                            TVBS 財經周報核心透析
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
+                            「這十年的中國改變了什麼？」習近平帶著強大穩健與自主自信見川普
+                        </h2>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            從 2008 年前的廉價世界工廠，到這十年成功實施「高科技立國」、「中國製造2025」。中國將 80% 製造業由智慧工廠覆蓋，裝機量全球過半。面對關稅戰高達 55% 的圍堵，中國依靠產業升級、人型機器人、深海海金系統與自主萬米鑽頭，展現強大戰略底氣。
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-3">
+                            <button onclick="switchTab('resources')" class="px-4 py-2 text-xs font-bold bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white rounded-lg shadow-md shadow-brand-500/15 transition-all">
+                                瀏覽研究資源庫 (6 篇)
+                            </button>
+                            <button onclick="switchTab('faq')" class="px-4 py-2 text-xs font-bold bg-brand-800 hover:bg-brand-700 text-brand-200 rounded-lg border border-brand-700 transition-all">
+                                查看學術 FAQ 庫 (8 題)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 戰略數據快照 (Dashboard Grid Highlights) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-brand-900/30 border border-brand-900 rounded-xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-brand-400 font-bold uppercase">中國工業機器人裝機</span>
+                            <span class="text-[10px] text-brand-300 font-mono">2026 統計</span>
+                        </div>
+                        <p class="text-2xl font-bold tracking-tight text-brand-300">全球過半 50%+</p>
+                        <p class="text-xs text-slate-300 leading-normal">小米汽車工廠每 76 秒出車，單工廠動用超過 700 台機器人配合 AI 檢測。</p>
+                    </div>
+
+                    <div class="p-4 bg-brand-900/30 border border-brand-900 rounded-xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-brand-400 font-bold uppercase">大國造船權重</span>
+                            <span class="text-[10px] text-brand-300 font-mono">1 季度原油輪</span>
+                        </div>
+                        <p class="text-2xl font-bold tracking-tight text-cyan-400">訂單佔比 91.4%</p>
+                        <p class="text-xs text-slate-300 leading-normal">今年首季 91 艘 VLCC 訂單中國承接 83 艘，徹底展現綠色船舶交付領先優勢。</p>
+                    </div>
+
+                    <div class="p-4 bg-brand-900/30 border border-brand-900 rounded-xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-brand-400 font-bold uppercase">美日韓科技股動能</span>
+                            <span class="text-[10px] text-brand-300 font-mono">Intel 55年新高</span>
+                        </div>
+                        <p class="text-2xl font-bold tracking-tight text-emerald-400">大漲 238%+</p>
+                        <p class="text-xs text-slate-300 leading-normal">AI 代理人崛起引爆 CPU 與記憶體高帶寬需求，美光與 Intel 瘋狂增長大勝單純 GPU。</p>
+                    </div>
+                </div>
+
+                <!-- 模擬 AI 學術助理 (Think Tank Grounded Interactive Q&A) -->
+                <div class="bg-brand-900/50 border border-brand-800 rounded-xl p-5 space-y-4">
+                    <div class="flex items-center justify-between border-b border-brand-800 pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
+                            <h3 class="text-sm font-bold text-slate-100">AI 學術研究助手（基於 2026/05 獨家資料庫）</h3>
+                        </div>
+                        <span class="text-xs text-brand-400 font-semibold code-font">Grounded on NotebookLM Docs</span>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <p class="text-xs text-slate-300">
+                            身為研究員，您可以點擊下方預設的專業學術方向，或者自行點擊右側的 FAQ 以查看基於文茜財經周報完整文本的精準答覆。
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-1" id="presetQueries">
+                            <button onclick="askAIAssistant('shipbuilding')" class="px-3 py-1.5 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-brand-200 border border-brand-700 transition-all">
+                                🔍 探討「美韓聯手重振造船與港口高昂懲罰費」對大國海權的影響
+                            </button>
+                            <button onclick="askAIAssistant('deep_drilling')" class="px-3 py-1.5 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-brand-200 border border-brand-700 transition-all">
+                                🔍 中國如何突破「深地萬米鑽探」與「深海海金系統」關鍵技術？
+                            </button>
+                            <button onclick="askAIAssistant('hantavirus')" class="px-3 py-1.5 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-brand-200 border border-brand-700 transition-all">
+                                🔍 歐洲安地斯漢他病毒 (Andes Hantavirus) 的感染特性與恐慌根源
+                            </button>
+                            <button onclick="askAIAssistant('us_debt')" class="px-3 py-1.5 rounded-lg bg-brand-800 hover:bg-brand-700 text-xs font-semibold text-brand-200 border border-brand-700 transition-all">
+                                🔍 2026年美國 39 兆國債危機與 AI 算力代理人市場大逆襲
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 虛擬回答展現區 -->
+                    <div id="aiResponseArea" class="hidden p-4 bg-brand-950/80 border border-brand-850 rounded-xl space-y-3 animate-fadeIn">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-xs text-cyan-400 font-bold">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                                智庫學術助理 - 即時 Grounding 分析結果
+                            </div>
+                            <button onclick="closeAIResponse()" class="text-xs text-brand-400 hover:text-white">收起</button>
+                        </div>
+                        <div id="aiResponseText" class="text-xs sm:text-sm text-slate-200 leading-relaxed space-y-2">
+                            <!-- Answer dynamically inserted -->
+                        </div>
+                        <div class="text-[10px] text-brand-400 flex items-center gap-1.5 border-t border-brand-900 pt-2 font-mono">
+                            <span>引用文獻：TVBS文茜的財經周報 20260517 / 20260515 完整集</span>
+                            <span>|</span>
+                            <span>置信度指數：98%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================== 2. 前沿資源庫 (Resource Library Tab) ================== -->
+            <section id="tab-resources" class="space-y-6 hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-brand-900 pb-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-white">前沿智庫資源庫 (Resource Library)</h2>
+                        <p class="text-xs text-brand-400">篩選與調閱 May 2026 地緣與科技前沿深度研究文獻</p>
+                    </div>
+                    <!-- 資源庫分類 Filter -->
+                    <div class="flex flex-wrap gap-1.5">
+                        <button onclick="filterResources('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500 text-white transition-all">全部</button>
+                        <button onclick="filterResources('geopolitics')" id="filter-geopolitics" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-900/60 text-brand-300 hover:bg-brand-900 transition-all">地緣與習川會</button>
+                        <button onclick="filterResources('technology')" id="filter-technology" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-900/60 text-brand-300 hover:bg-brand-900 transition-all">科技與半導體</button>
+                        <button onclick="filterResources('energy')" id="filter-energy" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-900/60 text-brand-300 hover:bg-brand-900 transition-all">重工與海權</button>
+                        <button onclick="filterResources('health')" id="filter-health" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-900/60 text-brand-300 hover:bg-brand-900 transition-all">歐洲與衛生</button>
+                    </div>
+                </div>
+
+                <!-- 資源庫文獻網格 (Resource Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="resourceContainer">
+                    <!-- Cards will be dynamically rendered via JS based on current filters and search queries -->
+                </div>
+            </section>
+
+            <!-- ================== 3. 學術 FAQ 庫 (FAQ Tab) ================== -->
+            <section id="tab-faq" class="space-y-6 hidden">
+                <div>
+                    <h2 class="text-lg font-bold text-white">智庫深度 FAQ 學術庫</h2>
+                    <p class="text-xs text-brand-400">基於 2026 年 5 月重大全球財經與地緣政治博弈核心問答</p>
+                </div>
+
+                <!-- FAQ 搜尋結果提醒 & 手風琴元件 (Accordion) -->
+                <div class="space-y-3" id="faqAccordion">
+                    <!-- FAQs will be dynamically rendered via JS -->
+                </div>
+            </section>
+
+            <!-- ================== 4. 地緣博弈大事紀 (Timeline Tab) ================== -->
+            <section id="tab-timeline" class="space-y-6 hidden">
+                <div>
+                    <h2 class="text-lg font-bold text-white">2026 地緣博弈歷史紀實（互動時間軸）</h2>
+                    <p class="text-xs text-brand-400">回顧 2026 年 5 月中旬發生的美中首腦會晤、地緣危機與大國制衡事件</p>
+                </div>
+
+                <!-- 互動時間軸 (Vertical Timeline Layout) -->
+                <div class="relative border-l border-brand-800 ml-4 pl-6 space-y-8" id="timelineContainer">
+                    <!-- Timeline items rendered dynamically via JS -->
+                </div>
+            </section>
+
+            <!-- ================== 5. 數據中心 (Data Center Tab) ================== -->
+            <section id="tab-datacenter" class="space-y-6 hidden">
+                <div>
+                    <h2 class="text-lg font-bold text-white">智庫數據監測中心 (Intelligence Data Center)</h2>
+                    <p class="text-xs text-brand-400">以圖形化、量化指標呈現 2026 大國的核心危機與實力分野</p>
+                </div>
+
+                <!-- 數據監測網格 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 美國主權債務危機 (US Debt vs GDP) -->
+                    <div class="bg-brand-900/30 border border-brand-900 rounded-xl p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b border-brand-850 pb-2">
+                            <h3 class="text-sm font-bold text-brand-300">2026 美國債務佔GDP攀升比重</h3>
+                            <span class="text-xs text-red-400 font-mono">高風險臨界</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            美國國債規模首次在 2026 年突破 <strong>39 兆美元</strong>，而其國內生產毛額（GDP）僅約 <strong>31.22 兆美元</strong>。債務利息支出已正式超越軍事國防與公共醫療支出。
+                        </p>
+                        <!-- Pure HTML/CSS comparison bar -->
+                        <div class="space-y-3 pt-2">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-300">2026 年美國主權國債總額</span>
+                                    <span class="font-bold text-red-400">39 兆美元</span>
+                                </div>
+                                <div class="w-full h-3 bg-brand-950 rounded-full overflow-hidden">
+                                    <div class="h-full bg-red-500 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-300">2026 年美國國內生產毛額 (GDP)</span>
+                                    <span class="font-bold text-slate-400">31.22 兆美元</span>
+                                </div>
+                                <div class="w-full h-3 bg-brand-950 rounded-full overflow-hidden">
+                                    <div class="h-full bg-slate-400 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2.5 bg-brand-950/80 rounded border border-brand-850 text-[10px] text-brand-400 leading-normal">
+                            研究員註：債務利息支出攀升導致惡性循環，川普政府缺乏削減福利與結構性簡政計劃，對美債主權信評帶來歷史性衝擊。
+                        </div>
+                    </div>
+
+                    <!-- 全球造船巨頭訂單佔比 (Global Shipbuilding Shares) -->
+                    <div class="bg-brand-900/30 border border-brand-900 rounded-xl p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b border-brand-850 pb-2">
+                            <h3 class="text-sm font-bold text-brand-300">2026 全球超大型原油輪 (VLCC) 訂單份額</h3>
+                            <span class="text-xs text-cyan-400 font-mono">東亞完全主導</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            在歐美能源制裁、荷姆茲海峽不穩、航線繞行需更多運力下，全球首季 91 艘 VLCC 訂單分布如下。中國綠色低成本與「一年內交付」實力吃下九成訂單。
+                        </p>
+                        <!-- Pure HTML/CSS stacked chart or horizontal bar chart -->
+                        <div class="space-y-2 pt-2">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-300">中國 (承接 83 艘)</span>
+                                    <span class="font-bold text-cyan-400">91.4%</span>
+                                </div>
+                                <div class="w-full h-3.5 bg-brand-950 rounded-full overflow-hidden">
+                                    <div class="h-full bg-cyan-500 rounded-full" style="width: 91.4%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-300">其他地區 (日本、南韓等剩餘承接)</span>
+                                    <span class="font-bold text-slate-400">8.6%</span>
+                                </div>
+                                <div class="w-full h-3.5 bg-brand-950 rounded-full overflow-hidden">
+                                    <div class="h-full bg-slate-500 rounded-full" style="width: 8.6%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2.5 bg-brand-950/80 rounded border border-brand-850 text-[10px] text-brand-400 leading-normal">
+                            美日韓合縱制衡：川普開徵高昂「中國建造船隻港口規費」（2028年將達 910 萬美元/船），迫使南韓承諾砸 1500 億美元重整美國廢城等生鏽船廠。
+                        </div>
+                    </div>
+
+                    <!-- 前沿傳染病致死率對比 (Global Health: Mortality Rates) -->
+                    <div class="bg-brand-900/30 border border-brand-900 rounded-xl p-5 space-y-4 col-span-1 md:col-span-2">
+                        <div class="flex items-center justify-between border-b border-brand-850 pb-2">
+                            <h3 class="text-sm font-bold text-brand-300">歐洲公共衛生威脅：安地斯漢他病毒 (Andes Hantavirus) 臨床危害比較</h3>
+                            <span class="text-xs text-yellow-500 font-mono">極地郵輪爆發傳播</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            2026 年 4、5 月間，荷蘭極地郵輪爆發「可人傳人」的致命 Andes Hantavirus 病毒。歐洲面臨 COVID 之後的深層陰影，儘管世衛（WHO）認為不會演變成流感大流行，但其重症致死率高得驚人。
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="p-3 bg-brand-950 rounded-lg border border-brand-850 text-center space-y-1">
+                                <p class="text-[11px] text-brand-400 font-bold uppercase">安地斯漢他病毒重症致死率</p>
+                                <p class="text-2xl font-bold text-red-500">12% - 45%</p>
+                                <p class="text-[10px] text-slate-400">無特效藥與FDA准許疫苗</p>
+                            </div>
+                            <div class="p-3 bg-brand-950 rounded-lg border border-brand-850 text-center space-y-1">
+                                <p class="text-[11px] text-brand-400 font-bold uppercase">首爾病毒株（常見本土致死率）</p>
+                                <p class="text-2xl font-bold text-emerald-500">極低 / 輕微</p>
+                                <p class="text-[10px] text-slate-400">台灣歷來均屬此較輕微病毒</p>
+                            </div>
+                            <div class="p-3 bg-brand-950 rounded-lg border border-brand-850 text-center space-y-1">
+                                <p class="text-[11px] text-brand-400 font-bold uppercase">新型新冠病毒 (COVID) 平均致死率</p>
+                                <p class="text-2xl font-bold text-slate-400">~ 0.5% - 1.5%</p>
+                                <p class="text-[10px] text-slate-400">已有完整群體疫苗覆蓋與口服藥</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 資源文獻詳情閱讀 Modal -->
+    <div id="resourceModal" class="fixed inset-0 bg-brand-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden transition-all">
+        <div class="bg-brand-900 border border-brand-800 rounded-2xl max-w-2xl w-full p-6 space-y-4 shadow-2xl animate-scaleIn">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span id="modalCategory" class="text-[10px] font-bold uppercase tracking-wider text-brand-400 bg-brand-950 px-2 py-0.5 rounded">分類</span>
+                    <h3 id="modalTitle" class="text-lg font-bold text-white mt-1.5 leading-snug">研究報告標題</h3>
+                </div>
+                <button onclick="closeResourceModal()" class="p-1 rounded bg-brand-950 border border-brand-800 text-brand-400 hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="border-y border-brand-800 py-4 max-h-96 overflow-y-auto space-y-3 text-sm text-slate-200 leading-relaxed">
+                <p id="modalMainIdea" class="font-semibold text-brand-300">核心主旨：</p>
+                <div id="modalContent" class="space-y-2 whitespace-pre-line text-xs sm:text-sm">
+                    <!-- Dynamic details -->
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+                <span class="text-brand-400 code-font" id="modalAuthor">TVBS世界周報學術透析</span>
+                <button onclick="simDownload()" class="px-4 py-2 bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white font-bold rounded-lg transition-all flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    下載完整 PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="border-t border-brand-900 bg-brand-950 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-400">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-300">2026 全球前沿科技與地緣博弈智庫網站</span>
+                <span>|</span>
+                <span>研究員專用門戶</span>
+            </div>
+            <div>
+                © 2026 TVBS Sisy's World News Database. All rights reserved. Built for researchers.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 業務邏輯與數據綁定 -->
+    <script>
+        // 1. 全域學術 FAQ 庫 (Based Strictly on May 2026 Uploaded Materials)
+        const faqs = [
+            {
+                id: "faq-1",
+                question: "2026年5月的「習川會」主要討論了哪些核心地緣政治與經貿議題？",
+                category: "geopolitics",
+                answer: `習川北京會談於 2026 年 5 月 14 日上午 10:20 在人民大會堂正式登場，會談時間長達 2 小時 40 分鐘。主要討論內容涵蓋：
+                1. 台灣問題：習近平單刀直入強調台灣是中美關係最重要、處理不當十分危險的核心紅線，要求美方反對台獨。川普則在隨後的空軍一號專機上表示「不希望看到有人走向台獨 (we don't like to see anybody go independent)」，希望維持現狀。
+                2. 經貿戰：美國對中國仍維持極高的 55% 關稅。川普帶領大批 CEO 代表團赴中，核心訴求是促使中國採購 500 架波音飛機、大量牛肉與大豆，以穩定美國農業州選情。
+                3. 中東伊美局勢：美伊爆發衝突、荷姆茲海峽交火，川普需要中國協助促成伊朗重新談判。`
+            },
+            {
+                id: "faq-2",
+                question: "中國在「深地探勘」與「深海採油技術」上，這十年取得了哪些具體自主突破？",
+                category: "energy",
+                answer: `這十年中國為擺脫能源依賴，實施自主技術突破，成果包括：
+                1. 塔克一號超深鑽井：在新疆塔克拉瑪干沙漠，設計深度高達 11,100 公尺（中國路上鑽探歷史之最）。該萬米深度地底高溫高壓，中國已全面實現金剛石鑽頭「國產化」，其武漢科研團隊研製出可承受 8 萬個大氣壓的超高壓複合片，突破西方壟斷。
+                2. 深海「海金系統 (Seis-king)」：中海油 (CNOOC) 自主研製，屬於 3D 深水探勘船關鍵技術。以往被美方 2021 年制裁後難以向外採購，現已完全實現全產業鏈國產化，使中國從仰賴西方深海探勘技術，蛻變成可輸出技術與設備的國家。`
+            },
+            {
+                id: "faq-3",
+                question: "2026 年半導體市場大洗牌，為何 Intel 與美光崛起？與 AI 代理人有何關聯？",
+                category: "technology",
+                answer: `2026 年 AI 狂潮並未熄滅，但產業重心從「純雲端運算」轉向「在地的 AI 代理人 (AI Agents) 模組與資料中心」。
+                這導致半導體高寬帶記憶體 (HBM) 以及能流暢調度指令的 CPU 需求呈爆發性增長。
+                1. 美光科技：極早於紐約州出資千億美元打造四座最先進記憶體廠房，今年市值突破 8000 億美元，12 個月內股價翻了 7 倍。
+                2. 英特爾 (Intel) 奇蹟崛起：Intel 做出了收回愛爾蘭 FAB34 晶圓廠、將先進封裝全面結合台積電、聯發科與立積電生態系的正確決策。再加上美國政府史無前例「直接入股 Intel 達 9.9% 股份」，各大科技巨頭排隊下單，促成 Intel 創下 Nasdaq 上市 55 年來最佳月度表現（大漲 114%），一年之內股價暴漲 238%。`
+            },
+            {
+                id: "faq-4",
+                question: "美國在 2026 年面臨了怎樣的主權債務危機？",
+                category: "geopolitics",
+                answer: `2026 年美國的主權債務首度突破一年的國內生產總值 (GDP)。目前美債規模高達驚人的 39 兆美元（高於 GDP 的 31.22 兆美元）。
+                這造成利息償還成本瘋狂攀升，並已實質超越了美國的軍事預算與國家公共醫療支出。川普政府缺乏削減社會安全福利的改革方案，若市場信心動搖，將引爆史無前例的債務違約與金融危機。`
+            },
+            {
+                id: "faq-5",
+                question: "什麼是「安地斯漢他病毒」（Andes Hantavirus）？為何引發歐洲大範圍恐慌？",
+                category: "health",
+                answer: `1. 病毒特徵：Andes Hantavirus 屬於漢他病毒中唯一「可人傳人」的致命病毒珠。感染途徑為吸入受囓齒類（老鼠）排泄物污染的塵土或被咬傷，重症致死率高達 12% 至 45%，且全球尚無 FDA 准許的特效藥或疫苗。
+                2. 2026 郵輪傳播事件：4 月份一艘荷蘭極地郵輪「紅迪斯號 (Plancius)」自阿根廷出發前，部分旅客在烏斯懷亞的垃圾掩埋場感染，上船後數天發病死亡。隨後病毒人傳人，波及同船德籍遊客與照護病患的英國船醫。
+                因為乘客來自 23 個國家，下船後乘坐班機散布全球，喚醒了歐洲人的黑死病與新冠大流行陰影，歐洲各國公共衛生體系均拉響了紅色警報。`
+            },
+            {
+                id: "faq-6",
+                question: "2026年5月英國首相施凱爾 (Keir Starmer) 遭逼宮慘敗的政治背景？",
+                category: "geopolitics",
+                answer: `英國首相施凱爾領導的工黨，在 2026 年 5 月 7 日的地方選舉中遭遇慘敗，輸掉高達 1400 席議員。
+                逼宮背景如下：
+                1. 薄弱執政根基：2024 年大選工黨雖大勝，但僅獲 3.7% 優勢票，完全靠保守黨崩潰而勝出。執政後政策頻頻大轉彎。
+                2. 人事醜聞：施凱爾任命的駐美大使曼德森，被爆出與惡名昭彰的美國性犯罪者艾普斯坦 (Epstein) 存在不當往來。
+                3. 工業國有化黑洞：施凱爾提出「國有化英國鋼鐵公司」，但國家審計署估算該案到 6 月份將累計虧損 6.15 億英鎊，到 2028 年更將耗費納稅人超過 15 億英鎊。最終多名初級部長集體請辭、工黨陷入內戰、英鎊與國債雙雙崩跌。`
+            },
+            {
+                id: "faq-7",
+                question: "德國總理梅爾茨 (Merz) 的「誠實」言論，如何引發與川普的衝突？",
+                category: "geopolitics",
+                answer: `2026 年 4 月底，剛上任一週年的德國總理梅爾茨在馬爾斯貝格一所中學演講時「魯莽說了實話」，痛批美伊戰爭中「伊朗在外交談判上徹底羞辱了美國、而川普領導下的美國在戰爭戰略上毫無清晰出口計畫」。
+                這段話激怒了川普，川普深夜在社群痛罵德國總理，並立刻宣布將美軍全歐洲最大基地「拉姆施泰因 (Ramstein)」的 5000 名駐軍撤出，給高度依賴美軍消費的德國地方經濟與安保體系帶來歷史性衝擊，美德裂痕加劇，普丁也隨之大笑、繼續獲益。`
+            },
+            {
+                id: "faq-8",
+                question: "中美造船業與港口懲罰規費大戰，具體涉及哪些制裁與反制措施？",
+                category: "energy",
+                answer: `2026 年中旬，美國針對中國造船龍頭主導權發起 301 調查，並祭出懲罰性港口規費：
+                1. 美方懲罰規費：對「中國實體擁有或營運的船舶」靠泊美港，開徵每淨噸 50 美元規費（且 2028 年起每年上調 30 美元）；對「中國建造的船舶」課徵高昂規費或 1,000 美元/貨櫃懲罰金。一艘 1.3 萬箱的中國運力船，靠美一次將被收取高達 325 萬美元（2028年將達 910 萬美元）。
+                2. 中方強力反制：對靠泊中國港口的美國船舶（美國建造、擁有、股權達25%或掛美旗者），按淨噸徵收 56 美元特別費，並逐步上調至 2028 年的 157 美元。中國商務部甚至在 10 月 14 日宣布「禁止中國實體與南韓韓華海洋旗下的 5 家美國子公司有業務往來」，作為其幫助美國調查的對抗手段。`
+            }
+        ];
+
+        // 2. 前沿研究報告文獻庫 (Resource Library Documents - strictly based on material)
+        const resources = [
+            {
+                id: "res-1",
+                title: "《2026地緣政治評估報告：習川北京會晤與中美台頂層架構解析》",
+                category: "geopolitics",
+                mainIdea: "解析 2026 年 5 月習川會之核心外交角力、台灣問題的定性、以及美國農業州選前經貿交換。",
+                content: `本報告深度解構了 2026 年 5 月 14 日人民大會堂「習川會」的閉門協商內幕。
+                【主要發現】：
+                1. 台灣戰略定位的轉變：中方在會談一開場便「單刀直入」就台灣問題表態。川普於空軍一號明確透露「不希望看到有人走向台獨 (independent)」，呼應習近平的紅線，台海問題正式朝向中美「共同管控」與維持現狀方向。
+                2. 川普外交的商業本質：隨行 17 名美國企業 CEO 包括庫克、馬斯克、甚至最後一刻登機的黃仁勳。川普核心關切的是中國重啟 500 架波音飛機、牛肉、大豆採購合約。為了 11 月的參議院中期選舉保衛戰，川普將經貿視為頭等大事。
+                3. 六項保證紅線的鬆動：美方學者與資深外交家指出，川普高調宣稱將與習近平共同協商「對台 4393 億台幣軍售」案，此舉已實質違反了雷根時代「不與北京事先協商對台軍售」的六項保證紅線，引發台灣執政當局與日本安保界的深層焦慮。`,
+                author: "智庫地緣政治研究所"
+            },
+            {
+                id: "res-2",
+                title: "《科技立國十年藍圖：人行機器人量產、3萬家智慧工廠與重工模具升級》",
+                category: "technology",
+                mainIdea: "評估「中國製造2025」提出十週年的實際技術回報，探討自動化產業鍊的完全自主。",
+                content: `本報告對比 2015 年 5 月中國推動「中國製造2025」之藍圖，評估其十年的重工與智慧化積累。
+                【主要數據與分析】：
+                1. 多場景人行機器人：中國電動車「極氪 (Zeekr)」生產線上，由人型機器人穿梭於儀表區、車門組裝等複雜場景，實現精密裝配，完全取代人類人力，進入「群體智能量產階段」。
+                2. 工業智慧化覆蓋：中國已建成超 3 萬家基礎級、1200 多家先進級、231 家卓越級智慧工廠。基礎級智慧化覆蓋率高達 80%。小米汽車工廠動用超 700 個機器人，配合首創 AI 光學X光大壓鑄件檢測，每 76 秒即可下線一輛電動車。
+                3. 東北老工業基地轉型：以傳統煤炭城市「吉林遼源」為例，於 2021 年停採後，與吉大等12所高校協同創新，加大輕量化模具研發，成功轉型為新能源汽車配套重鎮，在手訂單累計超 8 億元。證明傳統重工業在科技立國戰略下，已成功突破「美國卡脖子」圍堵。`,
+                author: "前沿產業與自動化研究組"
+            },
+            {
+                id: "res-3",
+                title: "《AI代理人狂潮下的半導體結構性重整：高頻寬記憶體與老牌CPU巨頭復興》",
+                category: "technology",
+                mainIdea: "解析 2026 年為什麼算力需求出現大轉向，傳統 GPU 市場向 CPU 與儲存高帶寬傾斜。",
+                content: `2026 年，全球人工智能（AI）市場發生了劃時代的架構洗牌。
+                【洗牌關鍵點】：
+                1. AI代理人 (AI Agents) 理論落地：AI 不再單純依賴雲端昂貴的單一 GPU，而是需要大量在地 CPU 與記憶體的協作以處理並發式高效率任務。美光 (Micron) 在紐約州興建的 4 座頂級記憶體廠房全面進入量產收割期，其股價在 12 個月內翻了驚人的 7 倍，市值首度突破 8000 億美元。
+                2. Intel 的愛國重回：美國政府史無前例直接入股 Intel（持股 9.9%），Intel 並買回愛爾蘭 FAB34 代工晶圓廠股權、結合台灣先進封裝生態鏈（台積電、聯發科、立積電）。微軟、亞馬遜、Google、SpaceX 排隊搶購其產能。Intel 創下上市 55 年來最強月漲幅 114%，今年股價大漲 238%。
+                3. 台韓股價史詩級暴漲：台股靠台積電狂飆，市值超越加拿大躍居全球第六大；南韓股市則在三星、SK海力士引領下， Cosby 指數突破 7000 點，超越加拿大躍居全球第七大。地緣紛爭下，老牌 Sandisk 與西數分拆後股價竟狂飆 30 倍。`,
+                author: "前沿科技與全球產業鏈智庫"
+            },
+            {
+                id: "res-4",
+                title: "《2026大國海權：中俄朝美海運規費大對抗、南韓 1500 億美元船廠投資分析》",
+                category: "energy",
+                mainIdea: "追蹤全球原油輪訂單轉向、美國港口對中國建造船舶規費、以及南韓協建美黃金艦隊之戰。",
+                content: `隨著中東地緣局勢惡化，荷姆茲海峽遭遇大範圍封鎖危機，繞行使得全球運力嚴重短缺，引爆全球原油輪（VLCC）建造訂單爭奪。
+                【博弈局勢解構】：
+                1. 中國造船完全主導：2026 年首季，全球共 17 家船東下單 91 艘 VLCC 訂單，中國承接 83 艘（佔比達 91.4%），主打平均比日韓低 10% 的綜合造船成本與「一年內提前提前提前交付（如大連凱拓輪 30 萬噸甲醇雙燃料提前 4 個月交付）」。
+                2. 美國港口規費大戰：川普政府啟動 301 關稅與「港口費懲罰」：中企船舶或中製船舶靠港課徵巨額規費，企圖扼殺中國航運巨頭中遠海運（估每年被課 15 億美元）。中方隨即反制，按淨噸向美籍或掛美旗船隻課徵 56 美元特別規費，引發貿易海戰。
+                3. 南韓的防禦性投資：南韓為換取對美免稅，承諾投資 1500 億美元協同美國重振造船業。南韓韓華海洋花 1 億美元收購廢城造船廠並注入 50 億美元改建，但大於 8 萬噸遠洋液化氣船仍必須在南韓本土製造。這引發中國商務部在 10 月 14 日對韓華五家子公司祭出強力制裁。`,
+                author: "大國海權與供應鏈戰略中心"
+            },
+            {
+                id: "res-5",
+                title: "《Andes Hantavirus 漢他病毒極地郵輪爆發：人傳人特性與全球航班追蹤》",
+                category: "health",
+                mainIdea: "追溯極地郵輪「紅迪斯號」 Andes 病原體傳播鏈、臨床高致死率及各國公衛反響。",
+                content: `本研究報告詳盡追蹤了 2026 年 4、5 月震驚歐洲與南美洲的安地斯漢他病毒 (Andes Hantavirus) 極地郵輪聚集爆發傳播鏈。
+                【傳播軌跡與臨床特性】：
+                1. 爆發起點：一艘荷蘭極地郵輪「紅迪斯號 (Plancius)」於 4 月初自阿根廷烏斯懷亞出發。首名荷蘭籍 70 歲病患與妻子在登船前的烏斯懷亞「垃圾掩埋場」觀賞鳥類活動，不幸吸入污染飛揚塵土染病。
+                2. 致命的人傳人：病患在船上死亡，郵輪起初未引起警覺，隨後其妻在急診往生，接著在船上負責照護病人的英國籍醫生、德籍女客等 8 人陸續確診，證實 Andes 病毒株「具備極高人傳人能力」。
+                3. 公衛追蹤警報：船上 23 國旅客於加納利群島強制隔離。提前下船的 17 名美國人返回美國本土，引發五個州公衛部門的高度戒備。由於該安地斯病毒重症臨床致死率高達 12%-45%，且全球完全沒有特效藥，引發歐洲社會重現中世紀黑死病與新冠早期的深層集體恐慌。`,
+                author: "全球公共衛生與流行病學課題組"
+            },
+            {
+                id: "res-6",
+                title: "《歐洲政局大震盪：英國工黨施凱爾逼宮、羅馬尼亞親歐政權垮台與Ramstein撤軍內幕》",
+                category: "geopolitics",
+                mainIdea: "評估美伊戰爭導致的高油價與通膨，如何催化歐洲各國親歐左翼執政聯盟集體列解。",
+                content: `本報告探討 2026 年 5 月伊美戰爭陰霾下，歐洲盟友體系因通膨、能源危機與內部政治角力而發生的崩盤效應。
+                【政局裂變解析】：
+                1. 英國首相施凱爾慘敗：工黨在地方選舉輸掉 1400 席，多名初級部長因曼德森大使 Epstein 醜聞與國有化英國鋼鐵的巨額虧損（虧損將超 15 億英鎊）集體請辭，工黨內戰導致英鎊大跌、10年期英國公債利率飆升至 5.12%。
+                2. 美德 Ramstein 撤軍衝突：德國總理梅爾茨在馬爾斯貝格演講中說出「伊朗羞辱了美國、川普戰爭毫無戰略出口」的魯莽實話。川普震怒，立刻下令從全歐美軍最大基地「拉姆施泰因 (Ramstein)」撤走 5000 駐軍，對拉姆施泰因高度賴美軍消費的東德邊緣地區經濟造成歷史性蕭條。
+                3. 東歐政治骨牌倒塌：羅馬尼亞議會以 281 票高票（遠超所需 233 票）罷免了親歐總理，甚至其所屬政黨也選擇棄權，歐盟一體化陷入不可逆的實質列解。`,
+                author: "歐洲政局與北約安全論壇"
+            }
+        ];
+
+        // 3. 地緣大事紀時間軸資料庫 (May 2026 Timeline)
+        const timelineEvents = [
+            {
+                date: "2026-05-02",
+                title: "德國極地郵輪女遊客漢他病毒離世",
+                description: "荷蘭極地郵輪「紅迪斯號」爆發人傳人 Andes 漢他病毒疫情。德國籍女遊客病逝，歐洲各國追蹤曾接觸過患者的跨國航班旅客，歐盟公衛體系高度緊繃。"
+            },
+            {
+                date: "2026-05-07",
+                title: "英國地方選舉工黨崩盤慘敗",
+                description: "首相施凱爾領導的工黨大輸 1400 個基層議席。曼德森大使艾普斯坦醜聞發酵，國有化鋼鐵公司預估將虧損 15 億英鎊，引爆內閣請辭逼宮狂潮。"
+            },
+            {
+                date: "2026-05-09",
+                title: "德國 Ramstein 撤軍事件",
+                description: "不滿德國總理梅爾茨「伊朗在談判中羞辱美國」的實話，川普宣布撤回 5000 名駐德美軍。德美關係遭遇歷史性裂痕，同日美聯準會可能因高通膨重啟升息，全球股債黑色星期五爆發。"
+            },
+            {
+                date: "2026-05-12",
+                title: "中美釋出「和平共處」影片",
+                description: "習川會前夕，中國外交部在國外 X 平台上發布美中和平共處暖身影片，對美遞出橄欖枝，美學者預估兩國將針對台灣與 4393 億台幣軍售問題展開激烈談判。"
+            },
+            {
+                date: "2026-05-14",
+                title: "習川北京會談正式登場",
+                description: "習近平與川普在人民大會堂進行長達 2 小時 40 分鐘的閉門峰會。習近平一開局單刀直入劃定台灣最危險紅線；川普隨行帶大批 CEO 賣波音飛機、牛肉與大豆。"
+            },
+            {
+                date: "2026-05-15",
+                title: "中美港口懲罰規費大戰開火",
+                description: "美國啟動 301 造船調查，課徵靠泊美港的「中國建船舶」每淨噸 50 美元規費（2028年達910萬美元/船）。中國同日發起對等規費反制，中美海權與航運進入劇烈博弈。"
+            },
+            {
+                date: "2026-05-17",
+                title: "川普於空軍一號專機發表「不希望看到台獨」言論",
+                description: "結束訪中返美的川普在空軍一號對記者大講特講，稱「不希望看到有人走向台獨、不希望台灣走台獨以為美軍會無限支持」，希望維持現狀，並與日本首相高市打招呼保證無出賣日本戰略。"
+            },
+            {
+                date: "2026-05-18",
+                title: "賴清德召開國安會議發表五點聲明",
+                description: "針對習川會後的「地方 (Place) 論」與台獨管控，賴清德發表「沒有台獨問題、台灣絕不接受被犧牲或交易」五點聲明。在野陣營高聲質疑其一邊定義台獨一邊喊沒台獨，如同初一十五。"
+            }
+        ];
+
+        // 4. 當前活動狀態 (App States)
+        let currentTab = 'dashboard';
+        let currentSearchQuery = '';
+        let currentCategory = 'all';
+
+        // 5. 初始化
+        window.onload = function() {
+            // 渲染控制台計數
+            document.getElementById('count-resources').textContent = `${resources.length} 篇`;
+            document.getElementById('count-faqs').textContent = `${faqs.length} 題`;
+
+            // 渲染列表
+            renderResources();
+            renderFAQs();
+            renderTimeline();
+            
+            // 設置 K 快捷鍵
+            window.addEventListener('keydown', function(e) {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.getElementById('globalSearch').focus();
+                }
+            });
+        };
+
+        // Tab 切換邏輯 (Tab Switch)
+        function switchTab(tabId) {
+            currentTab = tabId;
+            
+            // 隱藏所有 tabs
+            const tabs = ['dashboard', 'resources', 'faq', 'timeline', 'datacenter'];
+            tabs.forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+                
+                // 恢復 navigation button 樣式
+                const btn = document.getElementById(`btn-${t}`);
+                if (btn) {
+                    btn.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-brand-900/80 hover:text-white border-l-4 border-transparent";
+                }
+            });
+
+            // 顯示當前 tab
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            
+            // 高亮 navigation button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all bg-brand-800/80 text-white border-l-4 border-brand-500";
+            }
+        }
+
+        // 篩選與過濾 Resource 模組 (Resources Filtering)
+        function filterResources(category) {
+            currentCategory = category;
+            
+            // 恢復所有 filter 鈕樣式
+            const categories = ['all', 'geopolitics', 'technology', 'energy', 'health'];
+            categories.forEach(c => {
+                const btn = document.getElementById(`filter-${c}`);
+                if (btn) {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-900/60 text-brand-300 hover:bg-brand-900 transition-all";
+                }
+            });
+
+            // 高亮 active filter 鈕
+            const activeFilterBtn = document.getElementById(`filter-${category}`);
+            if (activeFilterBtn) {
+                activeFilterBtn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-500 text-white transition-all";
+            }
+
+            renderResources();
+        }
+
+        // 搜尋核心邏輯 (Live Search)
+        function handleSearch(query) {
+            currentSearchQuery = query.toLowerCase().trim();
+            const alertBox = document.getElementById('searchAlert');
+            const keywordBadge = document.getElementById('searchKeyword');
+
+            if (currentSearchQuery.length > 0) {
+                alertBox.classList.remove('hidden');
+                keywordBadge.textContent = `"${query}"`;
+            } else {
+                alertBox.classList.add('hidden');
+            }
+
+            // 同步手機與電腦搜尋框文字
+            document.getElementById('globalSearch').value = query;
+            document.getElementById('globalSearchMobile').value = query;
+
+            // 重新渲染過濾後的內容
+            renderResources();
+            renderFAQs();
+            renderTimeline();
+        }
+
+        function clearSearch() {
+            document.getElementById('globalSearch').value = '';
+            document.getElementById('globalSearchMobile').value = '';
+            handleSearch('');
+        }
+
+        // 渲染 Resources
+        function renderResources() {
+            const container = document.getElementById('resourceContainer');
+            container.innerHTML = '';
+
+            // 根據 Search 條件與分類過濾
+            const filtered = resources.filter(res => {
+                const matchesCategory = currentCategory === 'all' || res.category === currentCategory;
+                const matchesSearch = res.title.toLowerCase().includes(currentSearchQuery) || 
+                                      res.mainIdea.toLowerCase().includes(currentSearchQuery) || 
+                                      res.content.toLowerCase().includes(currentSearchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-1 md:col-span-2 text-center py-12 bg-brand-900/10 border border-dashed border-brand-850 rounded-xl space-y-2">
+                        <p class="text-sm text-brand-400">查無任何與搜尋條件相符的研究文獻報告。</p>
+                        <button onclick="clearSearch()" class="text-xs text-brand-300 hover:underline">清除篩選重試</button>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(res => {
+                const card = document.createElement('div');
+                card.className = "bg-brand-900/30 border border-brand-900 hover:border-brand-700 p-5 rounded-xl flex flex-col justify-between gap-4 transition-all hover:-translate-y-0.5";
+                
+                let categoryLabel = '地緣與習川會';
+                let categoryColor = 'bg-brand-950 text-brand-300 border-brand-800';
+                if (res.category === 'technology') {
+                    categoryLabel = '前沿科技與半導體';
+                    categoryColor = 'bg-cyan-950/80 text-cyan-300 border-cyan-900';
+                } else if (res.category === 'energy') {
+                    categoryLabel = '重工與船舶海權';
+                    categoryColor = 'bg-emerald-950/80 text-emerald-300 border-emerald-900';
+                } else if (res.category === 'health') {
+                    categoryLabel = '歐洲與公衛危機';
+                    categoryColor = 'bg-red-950/80 text-red-300 border-red-900';
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${categoryColor}">${categoryLabel}</span>
+                            <span class="text-[10px] text-brand-400 code-font">文獻 ID: RES-${res.id.slice(-1)}</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-100 hover:text-brand-300 cursor-pointer" onclick="openResourceModal('${res.id}')">${res.title}</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed line-clamp-2">${res.mainIdea}</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-brand-900/60 pt-3">
+                        <span class="text-[10px] text-brand-400 font-mono">${res.author}</span>
+                        <button onclick="openResourceModal('${res.id}')" class="text-xs font-bold text-brand-300 hover:text-white flex items-center gap-1">
+                            深度閱讀 
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 渲染學術 FAQ 庫 (手風琴或即時篩選 FAQ)
+        let activeFaqId = null;
+        function renderFAQs() {
+            const container = document.getElementById('faqAccordion');
+            container.innerHTML = '';
+
+            const filtered = faqs.filter(faq => {
+                return faq.question.toLowerCase().includes(currentSearchQuery) || 
+                       faq.answer.toLowerCase().includes(currentSearchQuery);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 bg-brand-900/10 border border-dashed border-brand-850 rounded-xl">
+                        <p class="text-sm text-brand-400">查無任何與搜尋條件相符的 FAQ 問答條目。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(faq => {
+                const item = document.createElement('div');
+                item.className = "border border-brand-900 bg-brand-900/20 rounded-xl overflow-hidden";
+                
+                const isOpen = activeFaqId === faq.id;
+                const arrowRotation = isOpen ? "rotate-180" : "rotate-0";
+                const contentDisplay = isOpen ? "block" : "hidden";
+                const bgHeader = isOpen ? "bg-brand-900/40" : "hover:bg-brand-900/10";
+
+                item.innerHTML = `
+                    <button onclick="toggleFaq('${faq.id}')" class="w-full flex items-center justify-between p-4 text-left ${bgHeader} transition-all">
+                        <span class="text-xs sm:text-sm font-bold text-slate-100 pr-4">${faq.question}</span>
+                        <svg class="w-4 h-4 text-brand-400 transition-transform ${arrowRotation} shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="p-4 border-t border-brand-900 bg-brand-950/60 ${contentDisplay}">
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line">${faq.answer}</p>
+                        <div class="mt-4 flex justify-end">
+                            <button onclick="citeToAIAssistant('${faq.id}')" class="text-[10px] font-semibold text-brand-400 hover:text-brand-200 border border-brand-850 px-2 py-1 rounded bg-brand-950 flex items-center gap-1">
+                                💬 引用至智庫學術助理提問
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function toggleFaq(id) {
+            if (activeFaqId === id) {
+                activeFaqId = null;
+            } else {
+                activeFaqId = id;
+            }
+            renderFAQs();
+        }
+
+        // 渲染互動時間軸 (Timeline Events)
+        function renderTimeline() {
+            const container = document.getElementById('timelineContainer');
+            container.innerHTML = '';
+
+            const filtered = timelineEvents.filter(ev => {
+                return ev.title.toLowerCase().includes(currentSearchQuery) || 
+                       ev.description.toLowerCase().includes(currentSearchQuery);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 bg-brand-900/10 border border-dashed border-brand-850 rounded-xl">
+                        <p class="text-sm text-brand-400">查無任何符合搜尋條件的大事紀節點。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(ev => {
+                const node = document.createElement('div');
+                node.className = "relative group";
+                
+                // Icon decoration on timeline dot
+                node.innerHTML = `
+                    <span class="absolute -left-[31px] top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-brand-950 border-2 border-brand-500 group-hover:bg-brand-500 transition-all"></span>
+                    <div class="bg-brand-900/20 border border-brand-900 hover:border-brand-850 p-4 rounded-xl space-y-2 transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-100 group-hover:text-brand-300 transition-all">${ev.title}</h4>
+                            <span class="text-[10px] text-brand-400 font-mono font-semibold bg-brand-950 px-2 py-0.5 rounded border border-brand-900 shrink-0 self-start sm:self-auto">${ev.date}</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">${ev.description}</p>
+                    </div>
+                `;
+                container.appendChild(node);
+            });
+        }
+
+        // 6. 資源庫詳情閱讀 Modal 邏輯
+        function openResourceModal(id) {
+            const res = resources.find(r => r.id === id);
+            if (!res) return;
+
+            document.getElementById('modalCategory').textContent = res.category === 'geopolitics' ? '地緣政治與首腦會晤' :
+                                                                  res.category === 'technology' ? '前沿科技與半導體格局' :
+                                                                  res.category === 'energy' ? '重工與船舶海權爭奪' : '歐洲局勢與公共衛生';
+            
+            // 標示顏色
+            let categoryBg = 'bg-brand-950 text-brand-300';
+            if (res.category === 'technology') categoryBg = 'bg-cyan-950 text-cyan-300';
+            else if (res.category === 'energy') categoryBg = 'bg-emerald-950 text-emerald-300';
+            else if (res.category === 'health') categoryBg = 'bg-red-950 text-red-300';
+            
+            document.getElementById('modalCategory').className = `text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${categoryBg}`;
+            document.getElementById('modalTitle').textContent = res.title;
+            document.getElementById('modalMainIdea').innerHTML = `<strong class="text-slate-100 font-semibold">核心主旨：</strong>${res.mainIdea}`;
+            document.getElementById('modalContent').innerHTML = res.content.split('\n').map(line => `<p class="leading-relaxed mb-2">${line.trim()}</p>`).join('');
+            document.getElementById('modalAuthor').textContent = `發佈小組：${res.author}`;
+
+            document.getElementById('resourceModal').classList.remove('hidden');
+        }
+
+        function closeResourceModal() {
+            document.getElementById('resourceModal').classList.add('hidden');
+        }
+
+        function simDownload() {
+            alert("🔒 下載安全模組確認中...\n已成功將本篇 2026 智庫學術報告存檔生成 PDF 快取，並開始模擬安全傳輸。");
+        }
+
+        // 7. 模擬智庫學術助理核心邏輯 (Think Tank Assistant Engine)
+        function askAIAssistant(type) {
+            const area = document.getElementById('aiResponseArea');
+            const textContainer = document.getElementById('aiResponseText');
+            area.classList.remove('hidden');
+
+            let answerHTML = '';
+            
+            if (type === 'shipbuilding') {
+                answerHTML = `
+                    <p class="font-semibold text-cyan-400 mb-1">地緣議題分析：美韓海運港口對壘與造船霸權</p>
+                    <p>根據 2026 年 5 月資料，全球航運動能嚴重短缺（VLCC 租金高達 10 萬美元/天）。中國大連等造船廠憑藉 10% 成本優勢與一年內快速交付實力，吃下全球首季 91.4% 的超大型油輪（83 艘）訂單。</p>
+                    <p class="mt-2">對此，川普政府實施 301 重拳，向中企與中國建造的船舶課徵極高港口懲罰規費（一艘中製 1.3 萬箱船舶停靠美港，靠美規費將逐步攀升至 2028 年的 910 萬美元）。中國隨即對等反制（課徵美製美掛美商持股船隻最高 157 美元/噸規費）。</p>
+                    <p class="mt-2">南韓為免除關稅，向美國承諾重金投資 1500 億美元重振美國生鏽的費城等老舊船廠。但研究指出，大於 8 萬噸之遠洋船舶南韓根本無法移至美國製造，美韓聯手在成本相差 4 倍的前提下極難逆襲，同時中國也已於 10 月 14 日全面禁制南韓韓華海洋 5 家美子公司的中方貿易往來。</p>
+                `;
+            } else if (type === 'deep_drilling') {
+                answerHTML = `
+                    <p class="font-semibold text-cyan-400 mb-1">技術立國專題：中國超深地鑽探與海金 3D 地質船技術自主</p>
+                    <p>這十年中國徹底落實科技立國與高科技工業升級。在重工業與自然資源領域成功擺脫對西方核心耗材的依賴：</p>
+                    <p class="mt-2">1. 萬米鑽頭完全國產化：新疆塔里木盆地「塔克一號」陸上鑽井設計深度為 11,100 公尺。因高溫致密硬岩，中國拋棄了以往進口依賴，成功自主量產可承受「8 萬個大氣壓」的超高壓金剛石複合片，讓國產鑽井 hardwares 零部件全面國產化。</p>
+                    <p class="mt-2">2. 海金 (Seis-king) 深海 3D 探勘系統：2021 年中海油遭受美國嚴重制裁封鎖，無法採購西方技術。中國歷時三年半自主研發，使海金 3D 生水探勘船完全擺脫西方的數字和通訊控制技術壟斷，自主發現並開採深海大量隱藏油氣，徹底將被動防禦行爲轉變為全鏈路自主輸出實力。</p>
+                `;
+            } else if (type === 'hantavirus') {
+                answerHTML = `
+                    <p class="font-semibold text-cyan-400 mb-1">公衛突發專題：安地斯漢他病毒 (Andes Hantavirus) 極地郵輪聚集爆發特徵</p>
+                    <p>此事件爆發於 2026 年 4 月初，由荷蘭極地郵輪「紅迪斯號」航向南極過程中傳播。臨床與公衛數據透析如下：</p>
+                    <p class="mt-2">【致命人傳人與公衛威脅】：Andes 病毒株是漢他病毒中「唯一確知可人傳人」的致命毒株。登船前一對荷蘭夫婦在阿根廷烏斯懷亞「垃圾掩埋場」吸入帶有老鼠排泄物塵土後染病。上船後病患死亡，並迅速藉由呼吸道與密切接觸人傳人，波及德籍旅客與隨船照護的英國醫生，累計 8 人中招、3 人不治死亡。</p>
+                    <p class="mt-2">【危害對比】：Andes 漢他病毒臨床死亡率高達驚人的 12% 至 45%，且全球完全沒有特效藥或 FDA 核准的疫苗，因而造成歐洲、美國（已有 17 名返國隔離在5個州）社會的高度黑死病與新冠大流行心理陰影。但台灣集管局澄清，台灣目前僅有病情極輕、致死率極低的首爾病毒株，從未檢出過 Andes 致命病毒，惟邊境公衛監控需拉高警戒標準。</p>
+                `;
+            } else if (type === 'us_debt') {
+                answerHTML = `
+                    <p class="font-semibold text-cyan-400 mb-1">宏觀與算力市場：美國 39 兆國債危機與 AI 算力代理人轉型</p>
+                    <p>【宏觀面債務爆雷】：美債已高達 39 兆美元（GDP 僅 31.22 兆美元）。利息支付正式超越國防與醫療福利支出，形成高融資成本與主權信用危機的惡性循環，川普政府面臨嚴重降評風波。</p>
+                    <p class="mt-2">【AI 算力大改道與老牌復興】：AI 代理人模式（AI Agents，如 Anthropic 融資規模衝擊 300 億美元、估值達 9000 億美元，追過 OpenAI）使算力不僅單純依賴 GPU，而是高度仰賴快速處理並發調度的 CPU 與儲存高帶寬記憶體 (HBM)。</p>
+                    <p class="mt-2">在此狂潮下，美光在紐約州打造四座先進 HBM 記憶體廠大獲成功，股價 12 個月內狂翻 7 倍，Intel 則靠著整合愛爾蘭 FAB34 代工產能、將先進封裝與生態鏈委託台灣聯發科、立積電與台積電合縱連橫，獲美政府 9.9% 股權重金支持與科技巨頭排隊下單，一週之內股價飆漲 114%、一年大漲 238%。台美韓科技股大勝華爾街傳統板塊。</p>
+                `;
+            }
+
+            textContainer.innerHTML = answerHTML;
+            area.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 當點擊 FAQ 下方的「引用至 AI 提問」
+        function citeToAIAssistant(faqId) {
+            const faq = faqs.find(f => f.id === faqId);
+            if (!faq) return;
+
+            const area = document.getElementById('aiResponseArea');
+            const textContainer = document.getElementById('aiResponseText');
+            area.classList.remove('hidden');
+
+            textContainer.innerHTML = `
+                <p class="font-semibold text-cyan-400 mb-1">您引用的學術 FAQ 內容深入解析：</p>
+                <p class="text-xs bg-brand-950 p-2.5 rounded border border-brand-850 text-brand-300 mb-2">問：${faq.question}</p>
+                <p class="mt-2">${faq.answer}</p>
+            `;
+            area.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeAIResponse() {
+            document.getElementById('aiResponseArea').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
